@@ -7,11 +7,9 @@
  */
 void my_swap(int *x, int *y)
 {
-	int temp;
-
-	temp = *x;
-	*x = *y;
-	*y = temp;
+	*x += *y;
+	*y = *x - *y;
+	*x -= *y;
 }
 
 /**
@@ -23,7 +21,6 @@ void my_swap(int *x, int *y)
 void bubble_sort(int *array, size_t size)
 {
 	size_t sorted = 0, i, j;
-	int temp;
 
 	for (i = 0; i < size; i++)
 	{
