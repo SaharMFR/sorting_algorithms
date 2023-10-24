@@ -7,9 +7,11 @@
  */
 void my_swap(int *x, int *y)
 {
-	*x += *y;
-	*y = *x - *y;
-	*x -= *y;
+	int temp;
+
+	temp = *x;
+	*x = *y;
+	*y = temp
 }
 
 /**
