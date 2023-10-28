@@ -62,7 +62,7 @@ void node_swap_behind(listint_t **list, listint_t **tail, listint_t **shaker)
 void cocktail_sort_list(listint_t **list)
 {
 	listint_t *tail, *shaker;
-	bool shaken_not_stirred = false;
+	int shaken_not_stirred = 0;
 
 	if (!list || !(*list) || !((*list)->next))
 		return;
@@ -72,14 +72,14 @@ void cocktail_sort_list(listint_t **list)
 
 	while (!shaken_not_stirred)
 	{
-		shaken_not_stirred = true;
+		shaken_not_stirred = 1;
 		for (shaker = *list; shaker != tail; shaker = shaker->next)
 		{
 			if (shaker->n > shaker->next->n)
 			{
 				node_swap_ahead(list, &tail, &shaker);
 				print_list((const listint_t *)*list);
-				shaken_not_stirred = false;
+				shaken_not_stirred = 0;
 			}
 		}
 		for (shaker = shaker->prev; shaker != *list;
@@ -89,7 +89,7 @@ void cocktail_sort_list(listint_t **list)
 			{
 				node_swap_behind(list, &tail, &shaker);
 				print_list((const listint_t *)*list);
-				shaken_not_stirred = false;
+				shaken_not_stirred = 0;
 			}
 		}
 	}
